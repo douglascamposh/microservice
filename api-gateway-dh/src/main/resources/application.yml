@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: news-management
+          uri: lb://news-management
+          predicates:
+            - Path=/api/v1/bulletins/**
+        - id: user-management
+          uri: lb://user-management
+          predicates:
+            - Path=/api/v1/users/**
